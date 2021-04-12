@@ -1,4 +1,4 @@
-% Fig_1_2_SI1_SI2_script.m
+% Figures_all_script.m
 %
 % Make figures for main text and SI, from: 
 % Higuera, P.E., Shuman, B.N., and K.D. Wolf. 202x. Rocky Mountain
@@ -113,9 +113,9 @@ medFig = [1 2 11 15]; % 11 11
 lrgFig = [1 2 18 22];  % 18 22
 fs = 8; % Font size
 
-% 1 column wide (20.5 picas / 3.42î / 8.7 cm)
-% 1.5 columns wide (27 picas / 4.5î / 11.4 cm)
-% 2 columns wide (42.125 picas / 7î / 17.8 cm)
+% 1 column wide (20.5 picas / 3.42‚Äù / 8.7 cm)
+% 1.5 columns wide (27 picas / 4.5‚Äù / 11.4 cm)
+% 2 columns wide (42.125 picas / 7‚Äù / 17.8 cm)
 % Provide all images at final size. While figures may be sized conservatively
 % to save page space, PNAS reserves the right to make the final decision on
 % figure size in published articles and authors may be asked to shorten
