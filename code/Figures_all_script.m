@@ -20,7 +20,7 @@
 %
 %   (8) ...EcoSec_M331H_M331I_Mean_VPD_MaySep_1979_2020.csv -- VPD data for
 %   Southern Rockies study area, averaged across space. 
-%   (9) ...GrandLake_Mean_VPD_MaySep_1980_2020.csv -- VPD data for Grank
+%   (9) ...GrandLake_Mean_VPD_MaySep_1980_2020.csv -- VPD data for Grand
 %   Lake, CO, as point representation for focal study area. 
 %
 %   (10)...trouet2013nam480pollen.csv
