@@ -37,7 +37,8 @@ Wirtten for R software (*.R file type), and fully commented, including dependenc
 ####  11. Mann08_nhcru_eiv_composite_updatedCRU_v102520.csv
 
 ## 3. FIGURES
-Figures in .tif, at 600 dpi. 
+
+Figures in .tiff format, uncompressed at 600 dpi. 
 
 #### Files:
 * Fig_1.tiff
