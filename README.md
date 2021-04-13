@@ -19,11 +19,11 @@ TBD
 #### File: 'Figures_all_script.m'
 Written for MATLAB software (*.m file type; www.mathworks.com), and fully commented, including dependencies. 
 
-#### File: "...R"
-Wirtten for R software (*.R file type), and fully commented, including dependencies. 
+#### File: "RCode_ContemporaryFRPCalc.R"
+Written for R software (*.R file type), and fully commented, including dependencies. 
 
 #### Subdirectory: "html"
-Matlab "markdown" html page that can be used to walk thorugh the script "Firgures_all_script.m", which includes the figures embeded in the html page. 
+Matlab "markdown" html page that can be used to walk through the script "Figures_all_script.m", which includes the figures embedded in the html page. 
 
 ## 2. DATA
 
@@ -32,12 +32,14 @@ Matlab "markdown" html page that can be used to walk thorugh the script "Firgure
 ####  3. ROMO_CharResults.csv
 ####  4. Minckley_et_al_LWH_CharResults.csv
 ####  5. ecoregp075_M331H_M331I.shp
-####  6. SRockies_Fires_1984_2020_WGS84.shp -- Fire perimieteres
+####  6. SRockies_Fires_1984_2020_WGS84.shp -- Fire perimeters
 ####  7. AreaBurned_Ecoregion_FocalStudy_1984_2020.csv -- Area burned statistics 
 ####  8. EcoSec_M331H_M331I_Mean_VPD_MaySep_1979_2020.csv -- VPD data for Southern Rockies study area, averaged across space. 
 ####  9. GrandLake_Mean_VPD_MaySep_1980_2020.csv -- VPD data for Grand Lake, CO, as point representation for focal study area. 
 ####  10. trouet2013nam480pollen.csv
 ####  11. Mann08_nhcru_eiv_composite_updatedCRU_v102520.csv
+####  12. SRockies_SubalpineConiferForestESP_Albers.tif -- Subalpine forest vegetation raster (projected)
+####  14. SRockies_Fires_1984_2020_Albers -- Fire perimeters (projected)
 
 ## 3. FIGURES
 
