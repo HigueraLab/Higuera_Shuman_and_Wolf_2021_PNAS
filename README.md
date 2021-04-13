@@ -39,7 +39,7 @@ Matlab "markdown" html page that can be used to walk through the script "Figures
 ####  10. trouet2013nam480pollen.csv
 ####  11. Mann08_nhcru_eiv_composite_updatedCRU_v102520.csv
 ####  12. SRockies_SubalpineConiferForestESP_Albers.tif -- Subalpine forest vegetation raster (projected)
-####  14. SRockies_Fires_1984_2020_Albers -- Fire perimeters (projected)
+####  13. SRockies_Fires_1984_2020_Albers -- Fire perimeters (projected)
 
 ## 3. FIGURES
 
