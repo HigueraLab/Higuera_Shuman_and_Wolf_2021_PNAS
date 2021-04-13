@@ -22,6 +22,9 @@ Written for MATLAB software (*.m file type; www.mathworks.com), and fully commen
 #### File: "...R"
 Wirtten for R software (*.R file type), and fully commented, including dependencies. 
 
+#### Subdirectory: "html"
+Matlab "markdown" html page that can be used to walk thorugh the script "Firgures_all_script.m", which includes the figures embeded in the html page. 
+
 ## 2. DATA
 
 ####  1. SouthernRockies_site_metadata.csv
