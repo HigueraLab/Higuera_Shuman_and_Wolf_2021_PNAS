@@ -40,7 +40,7 @@ Matlab "markdown" html page that can be used to walk through the script "Figures
 ####  9. SRockies_Fires_1984_2020_Albers.shp -- Fire perimeters (projected)
 ###  Summary statistics: contemporary annual area burned, fire rotation periods from tree-ring reconstructions
 ####  10. AreaBurned_Ecoregion_FocalStudy_1984_2020.csv -- Area burned statistics 
-####  11. NEED - Sibold et al. tree-ring data. 
+####  11. Dendro_FRP_Calculations.xlsx -- Spreadsheet with calculations of fire rotation periods from four published tree-ring fire-history reconstructions 
 ###  Climate datasets: contemporary VPD, paleo-temperature records
 ####  12. EcoSec_M331H_M331I_Mean_VPD_MaySep_1979_2020.csv -- VPD data for Southern Rockies study area, averaged across space. 
 ####  13. GrandLake_Mean_VPD_MaySep_1980_2020.csv -- VPD data for Grand Lake, CO, as point representation for focal study area. 
