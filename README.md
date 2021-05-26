@@ -30,15 +30,15 @@ Matlab "markdown" html page that can be used to walk through the script "Figures
 ## 2. DATA
 
 ###  Paleo-fire datasets:
-####  1. SouthernRockies_site_metadata.csv
-####  2. Calder_et_al_CharResults.csv
-####  3. ROMO_CharResults.csv
-####  4. Minckley_et_al_LWH_CharResults.csv
+####  1. SouthernRockies_site_metadata.csv -- metadata for all paleofire sites used
+####  2. Calder_et_al_CharResults.csv -- charcoal-inferred fire history for sites from Calder et al. (2015, PNAS)
+####  3. ROMO_CharResults.csv -- charcoal-inferred fire history for sites from Higuera et al. (2014, J of Ecology), Dunnette et al. (2014, New Phytologist), and Caffrey and Doerner (2012, Physical Geography), in Rocky Mnt. Nat. Park  
+####  4. Minckley_et_al_LWH_CharResults.csv -- charcoal-inferred fire history for sites from Minckley et al. (2012, Ecological Monographs)
 ###  Spatial datasets: study area, focal study area, fire perimiters
-####  5. ecoregp075_M331H_M331I.shp
-####  6. FocalStudyArea_SubalpineConiferForestESPP_WGS84.tif
-####  7. FocalStudyArea_SubalpineConiferForestESP_Albers.tif -- Subalpine forest vegetation raster (projected)
-####  8. SRockies_Fires_1984_2020_WGS84.shp -- Fire perimeters
+####  5. ecoregp075_M331H_M331I.shp -- Shape file for M331H and M331I ecoregions, defining "central Rockies"
+####  6. FocalStudyArea_SubalpineConiferForestESPP_WGS84.tif -- Subalpine forest vegetation in the focal study area (unprojected)
+####  7. FocalStudyArea_SubalpineConiferForestESP_Albers.tif -- Subalpine forest vegetation raster in the focal study area (projected)
+####  8. SRockies_Fires_1984_2020_WGS84.shp -- Fire perimeters (unprojected)
 ####  9. SRockies_Fires_1984_2020_Albers.shp -- Fire perimeters (projected)
 ###  Summary statistics: contemporary annual area burned, fire rotation periods from tree-ring reconstructions
 ####  10. AreaBurned_Ecoregion_FocalStudy_1984_2020.csv -- Area burned statistics 
@@ -52,7 +52,7 @@ Matlab "markdown" html page that can be used to walk through the script "Figures
 
 ## 3. FIGURES
 
-Figures in .tiff format, uncompressed at 600 dpi. 
+Figures in .tiff format, at 600 dpi. 
 
 #### Files:
 * Fig_1.tiff
