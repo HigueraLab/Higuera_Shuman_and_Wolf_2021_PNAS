@@ -8,10 +8,10 @@ This archive includes data and scripts needed to reproduce the analyses in Higue
 
 ### Citation Information
 
-## DATA and CODE - *please cite if you use data, code, or figures in your own work*
+#### DATA and CODE - *please cite if you use data, code, or figures in your own work*
 Higuera, Philip; Shuman, Bryan; Wolf, Kyra (2021), Data and Code for "Rocky Mountain subalpine forests now burning more than any time in recent millennia," PNAS, Dryad, Dataset, https://doi.org/10.5061/dryad.rfj6q579n
 
-## Reference to paper 
+#### Reference to paper 
 Higuera, P.E., B.N. Shuman, and K.D. Wolf. 2021. Rocky Mountain subalpine forests now burning more than any time in recent millennia. Proceedings of the National Academy of Sciences. https://doi.org/10.1073/pnas.2103135118
 
 #### Contents
