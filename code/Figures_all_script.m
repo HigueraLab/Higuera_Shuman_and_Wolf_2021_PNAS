@@ -1,50 +1,62 @@
-%% ReadMe
+%% Read Me
 %
-% Make figures for main text and SI, from: 
-% Higuera, P.E., Shuman, B.N., and K.D. Wolf. 202x. Rocky Mountain
-% subalpine forests now burning more than any time in past millennia. In
-% Revisions, PNAS. 
+% Make figures for main text and SI, from:
 %
-% *FILE REQUIREMENTS:*
+% Higuera, P.E., Shuman, B.N., and K.D. Wolf. 2021. Rocky Mountain
+% subalpine forests now burning more than any time in past millennia.
+% PNAS, https://doi.org/10.1073/pnas.2103135118.
 %
-%   (1) ...SouthernRockies_site_metadata.csv
-%   (2) ...Calder_et_al_CharResults.csv
-%   (3) ...ROMO_CharResults.csv
-%   (4) ...Minckley_et_al_LWH_CharResults.csv
+% *DATA FILES REQUIRED:*
+% Data files avaliabel via GitHub: https://github.com/HigueraLab/BreakingPaleoRecords
 %
-%   (5) ...ecoregp075_M331H_M331I.shp
+% 1. SouthernRockies_site_metadata.csv -- lat. lon. of lake sites
 %
-%   (6) ...SRockies_Fires_1984_2020_WGS84.shp -- Fire perimieteres
-%   (7) ...AreaBurned_Ecoregion_FocalStudy_1984_2020.csv -- Area burned
-%   statistics 
+% 2. Calder_et_al_CharResults.csv -- CharAnalysis results, Calder et al.
 %
-%   (8) ...EcoSec_M331H_M331I_Mean_VPD_MaySep_1979_2020.csv -- VPD data for
-%   Southern Rockies study area, averaged across space. 
-%   (9) ...GrandLake_Mean_VPD_MaySep_1980_2020.csv -- VPD data for Grand
-%   Lake, CO, as point representation for focal study area. 
+% 3. ROMO_CharResults.csv -- CharAnalysis results, Rocky Mnt. NP sites
 %
-%   (10)...trouet2013nam480pollen.csv
-%   (11)...Mann08_nhcru_eiv_composite_updatedCRU_v102520.csv
+% 4. Minckley_et_al_LWH_CharResults.csv -- CharAnalysis results, LWH Pond
 %
+% 5. ecoregp075_M331H_M331I.shp -- ecoregion polygon
 %
-% DEPENDENCIES: 
-%   NONE
+% 6. SRockies_Fires_1984_2020_WGS84.shp -- Fire perimieteres, 1984-2020
 %
+% 7. AreaBurned_Ecoregion_FocalStudy_1984_2020.csv -- Area burned statistics
 %
-% Created by: P.E. Higuera
-% Created on: November 2020
+% 8. EcoSec_M331H_M331I_Mean_VPD_MaySep_1979_2020.csv -- VPD data for 
+%       Southern Rockies study area, averaged across space.
+%
+% 9. GrandLake_Mean_VPD_MaySep_1980_2020.csv -- VPD data for Grand Lake, 
+%       CO, as point representation for focal study area.
+%
+% 10. trouet2013nam480pollen.csv -- North America paleo temeratures.
+%
+% 11. Mann08_nhcru_eiv_composite_updatedCRU_v102520.csv -- N. Hemisphere
+%       paleo temperatures
+%
+% *DEPENDENCIES:* 
+% # MATLAB v. 9.7
+% # Mapping Toolbox v. 4.9
+% # Statistics and Machine Learning Toolbox v. 11.6
+% # Curve Fitting Toolbox v. 3.5.10
+%
+% *Created by:*
+%
+% P.E. Higuera, philip.higuera@umontana.edu
+%
+% Created: November 2020
+%
 % Updated: April 2021
-% Edited: 4/2014 for publication, by P.E. Higuera.
 %
-% University of Montana, PaleoEcology and Fire Ecology Lab
+% University of Montana, PaleoEcology and Fire Ecology Lab, 
 % https://www.cfc.umt.edu/research/paleoecologylab/
-% philip.higuera@umontana.edu
 
+%% INITIATE and SET working directory and data directory
 clear all
 close all
+warning off
 
-%% SET working directory and data directory
-wd = cd; % 
+wd = cd; 
 dataDir = [wd(1:end-4) 'data'];
 
 %% LOAD lake locations and metadata
@@ -77,7 +89,7 @@ CR_AB = importdata([dataDir '\AreaBurned_Ecoregion_FocalStudy_1984_2020.csv']);
         % for all and subalpine forest only, and for "focal study area"
         % within these combined ecosections. 
         
-yr_aab = [1984:2020]; % [yr CE]
+yr_aab = (1984:2020); % [yr CE]
 aab = zeros(length(yr_aab),2); % [ha] 
 for i = 1:length(yr_aab)
     yrIn = find(CR_AB.data(:,1) == yr_aab(i));
@@ -89,7 +101,7 @@ for i = 1:length(yr_aab)
 end
 
 %% LOAD LANDFIRE-defined subalpine forest, within focal study area
-[A,R] = geotiffread([dataDir '\SRockies_SubalpineConiferForestESP_WGS84.tif']);
+[A,R] = geotiffread([dataDir '\FocalStudyArea_SubalpineConiferForestESP_WGS84.tif']);
 subalpineForest = double(A);
 
 %% LOAD Central Rockies and Grand Lake May-Sep. average VPD, 1979-2020
@@ -119,9 +131,9 @@ medFig = [1 2 11 15]; % 11 11
 lrgFig = [1 2 18 22];  % 18 22
 fs = 8; % Font size
 
-% 1 column wide (20.5 picas / 3.42î / 8.7 cm)
-% 1.5 columns wide (27 picas / 4.5î / 11.4 cm)
-% 2 columns wide (42.125 picas / 7î / 17.8 cm)
+% 1 column wide (20.5 picas / 3.42‚Äù / 8.7 cm)
+% 1.5 columns wide (27 picas / 4.5‚Äù / 11.4 cm)
+% 2 columns wide (42.125 picas / 7‚Äù / 17.8 cm)
 % Provide all images at final size. While figures may be sized conservatively
 % to save page space, PNAS reserves the right to make the final decision on
 % figure size in published articles and authors may be asked to shorten
@@ -142,7 +154,6 @@ fs = 8; % Font size
 figure(1); clf; 
 set(gcf,'color','w','Units','Centimeters','position',medFig)
 ax = subplot(3,2,[2 4]);
-pos = get(ax,'Position');
 set(ax,'color','none','xcolor','none','ycolor','none')
 
 % *A: Southern Rockies study area*
@@ -173,9 +184,10 @@ text(39.65, -105.35,'\itDenver','Color',[0 0 0])
 % *Plot lake locations*
 in = 1+[3 4 5 6 7 8 10 13 14 16 17 19]; % Index for lakes burned in MCA
 a5 = geoplot(lakeData.Latitude,lakeData.Longitude,'ok',...
-    'MarkerFaceColor','w','MarkerSize',7);
+    'MarkerFaceColor','w','MarkerSize',7); % All lakes
 a6 = geoplot(lakeData.Latitude(in),lakeData.Longitude(in),'or',...
-    'MarkerFaceColor',[1 .25 .25],'MarkerSize',1.75);
+    'MarkerFaceColor',[0.6 0 0],...
+    'MarkerEdgeColor',[0.6 0 0],'MarkerSize',1.75); % Lake burned in MCA
 
 % *Plot tree-ring studies*
 ms = 6;
@@ -186,7 +198,7 @@ a7 = geoplot(41.489185, -106.182506,'+k','MarkerSize',ms,...
 geoplot(40.438131, -105.571230,'+k','MarkerSize',ms,...
     'MarkerFaceColor','none','LineWidth',lw);
         % Buechling and Baker (2004)
-geoplot(40.80, -106.72,'+k','MarkerSize',ms,...
+geoplot(40.82, -106.72,'+k','MarkerSize',ms,...
     'MarkerFaceColor','none','LineWidth',lw);
         % Howe and Baker (2003)% geoplot(40.875, -107.05,'vk','MarkerFaceColor','none')
 geoplot(40.3, -105.73,'+k','MarkerSize',ms,'LineWidth',lw);
@@ -197,7 +209,6 @@ geobasemap('landcover')
 % geobasemap('usgsimageryonly')
 geolimits(latlim,lonlim)
 grid on
-% pos = [0.1094    -0.9 0.8521    0.8];
 pos = [0.1094    0.3268    0.8521    0.6537];
 set(gx,'fontsize',fs,...%'LongitudeLabel',[],'LatitudeLabel',[],...
     'Position',pos,'MapCenter',[40.6 -107.4],'color','none')
@@ -212,7 +223,6 @@ text(42.70,-110.67,'A','FontSize',14,'FontWeight','Bold')
 
 % *West-wide map*
 ax = subplot(3,2,6);
-pos = get(ax,'Position');
 set(ax,'color','none','xcolor','none','ycolor','none')
 
 states = shaperead('usastatehi'); % State outlines
@@ -342,7 +352,7 @@ text(550,0.2,'Mann et al. (2009)','HorizontalAlignment','Right',...
     'FontSize',fs,'Color',[0.5 0.5 0.5])
 text(599,-0.40,'Trouet et al. (2013)','HorizontalAlignment','Right',...
     'FontSize',fs,'Color',[0.5 0.5 0.5])
-ylabel('Mean ann. temp. anomaly (\circ C)','Rotation',270,...
+ylabel('Mean annual temperature anomaly (\circC)','Rotation',270,...
     'VerticalAlignment','Bottom')
 pos = [ 0.1100    0.5128    0.75    0.2959];
 set(gca,'xcolor','none','YAxisLocation','Right','tickdir','out',...
@@ -422,21 +432,27 @@ f = fill(X2,Y2,[0.98 0.72 0.72],'EdgeColor',[0.8 0 0]);
 %         'markersize',10);
 
 %%%% Split up dendro data into two time periods
-    dendroFRP_1737 = [252 227 217 634 420 127 349 281];
-    dendroFRP_1904 = [338 329 215 247 1293 170 332 295];
-        % Sibold et al. 2007 
+%     dendroFRP_1737 = [252 227 217 634 420 127 349 281];
+%     dendroFRP_1904 = [338 329 215 247 1293 170 332 295];
+    dendroFRP_1747 = [242 199 183 596 398 127 349 281];
+    dendroFRP_1912 = [298 1520 1910 296 1333 170 332 295];
+
+    [p_dendroFRP_compare,h,stats] = ranksum(dendroFRP_1747,dendroFRP_1912); 
+    % Rank-sum test comparing FRP values between time periods. 
+    
+% Sibold et al. 2007 
         % (values 1-5 here, from Table 4) + Bucheling and Baker 2004 (346) + 
         % Howe and Baker 2003 (281) + Kipfmueller and Baker 2000 (127),
         % as summarized in Baker (2009, Table 8.1). 
-    dendroFRP_1760ci = prctile(bootstrp(10000,'median',dendroFRP_1737),[2.5 97.5]);
-    dendroFRP_1936ci = prctile(bootstrp(10000,'median',dendroFRP_1904),[2.5 97.5]);
-    plot([1611 1863],[100/median(dendroFRP_1737) 100/median(dendroFRP_1737)],'k-')
-    plot([1737 1737],100./dendroFRP_1760ci,'k-')
-    plot([1864 1944],[100/median(dendroFRP_1904) 100/median(dendroFRP_1904)],'k-')
-    plot([1904 1904],100./dendroFRP_1936ci,'k-')
-d = plot(1737,100/median(dendroFRP_1737),'sk','markerfacecolor',[0.8 0.25 0.25],...
+    dendroFRP_1742ci = prctile(bootstrp(10000,'median',dendroFRP_1747),[2.5 97.5]);
+    dendroFRP_1908ci = prctile(bootstrp(10000,'median',dendroFRP_1912),[2.5 97.5]);
+    plot([1632 1862],[100/median(dendroFRP_1747) 100/median(dendroFRP_1747)],'k-')
+    plot([1747 1747],100./dendroFRP_1742ci,'k-')
+    plot([1862 1962],[100/median(dendroFRP_1912) 100/median(dendroFRP_1912)],'k-')
+    plot([1912 1912],100./dendroFRP_1908ci,'k-')
+d = plot(1747,100/median(dendroFRP_1747),'sk','markerfacecolor',[0.8 0.25 0.25],...
         'markersize',8);  
-    plot(1904,100/median(dendroFRP_1904),'sk','markerfacecolor',[0.8 0.25 0.25],...
+    plot(1912,100/median(dendroFRP_1912),'sk','markerfacecolor',[0.8 0.25 0.25],...
         'markersize',8);
 
 %%%% Plot contemporary FRPs
@@ -496,11 +512,11 @@ yyaxis right
 x2 = VPD_GrandLake.Year(5:end);
 y3 = VPD_GrandLake.VPD_kPa(5:end);
 h2 = plot(x2,y3,'k','linewidth',2);
-[r p] = corr(y,y3,'Type','Spearman'); % Correlation between VPD and AAB
+[r, p] = corr(y,y3,'Type','Spearman'); % Correlation between VPD and AAB
 text(1985,1.25,['\rho = ' num2str(round(r*100)/100)],'FontSize',fs+2)
 
-[r p] = corr(x2,y3,'Type','Spearman'); % Correlation between VPD and year
-[r p] = corr(x',y,'Type','Spearman'); % Correlation between aab and year
+[r, p] = corr(x2,y3,'Type','Spearman'); % Correlation between VPD and year
+[r, p] = corr(x',y,'Type','Spearman'); % Correlation between aab and year
 
 ylabel('VPD (kPa)','Rotation',270,'VerticalAlignment','Bottom')
 ylim([0.85 1.5])
@@ -542,13 +558,13 @@ a3 = plot(-1000,293,'pk','MarkerFaceColor',[0.8 0.25 0.25],...
 % grid on
 % box off
 
-plot([1650 1870],[median(dendroFRP_1737) median(dendroFRP_1737)],'k-')
-plot([1760 1760],dendroFRP_1760ci,'k-')
-plot([1871 2000],[median(dendroFRP_1904) median(dendroFRP_1904)],'k-')
-plot([1936 1936],dendroFRP_1936ci,'k-')
-a4 = plot(1760,median(dendroFRP_1737),'sk','markerfacecolor',[0.8 0.25 0.25],...
+plot([1650 1870],[median(dendroFRP_1747) median(dendroFRP_1747)],'k-')
+plot([1760 1760],dendroFRP_1742ci,'k-')
+plot([1871 2000],[median(dendroFRP_1912) median(dendroFRP_1912)],'k-')
+plot([1936 1936],dendroFRP_1908ci,'k-')
+a4 = plot(1760,median(dendroFRP_1747),'sk','markerfacecolor',[0.8 0.25 0.25],...
         'markersize',8);  
-    plot(1936,median(dendroFRP_1904),'sk','markerfacecolor',[0.8 0.25 0.25],...
+    plot(1936,median(dendroFRP_1912),'sk','markerfacecolor',[0.8 0.25 0.25],...
         'markersize',8);
 
 pos = [0.0808    0.1412    0.3714    0.7288];
@@ -618,7 +634,6 @@ Sum_Ai_Future = [Sum_Ai(2) + Sum_Ai(1)*(30/37);...
 FRP_future = NaN(length(t),1);
 symb = ['d','^','v','d','^','v'];
 for i = 1:length(t)
-    in = find(yr_aab == t(i,1));
     FRP_future(i) = (diff(t(i,:))+1)/(Sum_Ai_Future(i)/A);
     plot(t(i,:),[FRP_future(i) FRP_future(i)],'--k')
     if i == 1; hold on; end
@@ -645,7 +660,7 @@ figure(5); clf;
 %%%% Display focal study area
 imshow(subalpineForest);
 hold on
-colormap([0.9 0.9 0.9; 0 0.6 0])
+colormap([0.9 0.9 0.9; 0.5 0.5 0.5])
 
 %%%% Plot focal study area
 [latlimFoc_dis,lonlimFoc_dis] = geographicToDiscrete(R,latlimFoc,lonlimFoc);
@@ -659,11 +674,11 @@ ylim(fliplr(latlimFoc_dis))
 
 %%%% Plot Central Rockies ecoregions
 [I,J] = geographicToDiscrete(R,latSoRockies,lonSoRockies);
-a2 = plot(J,I,'color',[0.5 0.5 0.5],'Linewidth',2);
+a2 = plot(J,I,'color',[0.75 0.75 0.75],'Linewidth',2);
 
 %%%% Plot MTBS + 2020 area burned
 nFires = length(firePerimiters);
-yr_aab = [1984:2020];
+yr_aab = (1984:2020);
 for i = 1:nFires
     if strcmp(firePerimiters(i).Year,'2020')
         [i,j] = geographicToDiscrete(R,firePerimiters(i).Y,firePerimiters(i).X);
@@ -696,7 +711,7 @@ plot(i,j,'+k','MarkerSize',ms,'MarkerFaceColor','none','LineWidth',lw);
 plot(i,j,'+k','MarkerSize',ms,'LineWidth',lw);
         % Sibold et al. (2006)
 
-a0 = plot(-999,-999,'sk','MarkerFaceColor',[0 0.6 0],...
+a0 = plot(-999,-999,'sk','MarkerFaceColor',[0.5 0.5 0.5],...
     'MarkerEdgeColor','none','MarkerSize',10);
         
 legend([a1 a2 a0 a3 a4 a5 a6 a7],'Focal study area','Ecoregion boundry',...
