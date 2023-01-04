@@ -1,4 +1,4 @@
-## Data, code, and figures from "Rocky Mountain subalpine forests now burning more than any time in recent millennia"
+## Data, code, and figures from "Rocky Mountain subalpine forests now burning more than any time in recent millennia," PNAS, 2021.
 
 ## Overview
 
